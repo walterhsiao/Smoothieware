@@ -16,6 +16,7 @@
 #include "modules/tools/scaracal/SCARAcal.h"
 #include "modules/tools/switch/SwitchPool.h"
 #include "modules/tools/temperatureswitch/TemperatureSwitch.h"
+#include "modules/tools/temperaturefader/TemperatureFader.h"
 #include "modules/tools/drillingcycles/Drillingcycles.h"
 #include "FilamentDetector.h"
 
@@ -185,6 +186,9 @@ void init() {
     #ifndef NO_TOOLS_TEMPERATURESWITCH
     // Must be loaded after TemperatureControlPool
     kernel->add_module( new TemperatureSwitch() );
+    #endif
+    #ifndef NO_TOOLS_TEMPERATURESWITCH
+    kernel->add_module( new TemperatureFader() );
     #endif
     #ifndef NO_TOOLS_DRILLINGCYCLES
     kernel->add_module( new Drillingcycles() );
